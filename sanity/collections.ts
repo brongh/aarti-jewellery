@@ -30,7 +30,27 @@ const collectionSchema = {
             title: 'Featured',
             type: 'boolean',
             initialValue: false
-        }, 
+        },
+        {
+            name: 'order',
+            title: 'Order',
+            type: 'number',
+            initialValue: 999,
+            unique: true
+        },
+        {
+            title: 'Slug',
+            name: 'slug',
+            type: 'slug',
+            options: {
+              source: 'name',
+              maxLength: 200, // will be ignored if slugify is set
+              slugify: (input: string) => input
+                                   .toLowerCase()
+                                   .replace(/\s+/g, '-')
+                                   .slice(0, 200)
+            }
+          }, 
         {
             name: 'image',
             title: 'Cover Image',

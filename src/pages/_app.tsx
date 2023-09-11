@@ -1,12 +1,13 @@
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 
-import { Inter } from "next/font/google"
+import { Noto_Sans_TC } from "next/font/google"
 import Layout from "@/components/Layout/Layout"
 
-const inter = Inter({
+const notoSansTc = Noto_Sans_TC({
+  variable: "--body-font",
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "700"],
 })
 
 export default function App({ Component, pageProps }: AppProps) {

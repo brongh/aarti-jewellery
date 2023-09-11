@@ -4,6 +4,66 @@
 
 @layer base {
   html {
-    font-family: inter, system-ui, sans-serif;
+    font-family: notoSansTc, system-ui, sans-serif;
+  }
+
+  h1 {
+    @apply text-[32px] font-normal leading-10 md:text-5xl md:leading-[64px];
+  }
+
+  h2 {
+    @apply text-[28px] font-normal leading-9 md:text-4xl md:leading-[48px];
+  }
+
+  h3 {
+    @apply text-xl font-normal md:text-[28px] md:leading-10;
+  }
+
+  h4 {
+    @apply text-lg font-medium leading-[26px] md:text-2xl;
+  }
+
+  .subtitle1 {
+    @apply text-base font-medium md:text-lg md:leading-[26px];
+  }
+
+  .subtitle2 {
+    @apply text-sm font-bold leading-[22px] md:text-base;
+  }
+
+  .body1 {
+    @apply text-base font-normal;
+  }
+
+  .body2 {
+    @apply text-sm font-normal leading-[22px];
+  }
+
+  .buttonText {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .caption {
+    @apply text-xs leading-[18px] font-normal;
+  }
+}
+
+@layer components {
+  button.btn {
+    @apply items-center justify-center px-6 py-2 uppercase;
+  }
+
+  button.btn-filled {
+    @apply bg-primary text-white
+    hover:bg-orange-100 hover:text-stone-500
+    active:ring-1 active:ring-red-300 active:text-white
+    focus:ring-1 focus:ring-red-300;
+  }
+
+  button.btn-outline {
+    @apply border-1 border-primary text-primary caption
+    hover:bg-primary hover:text-white
+    active:ring-1 active:ring-red-300 active:text-primary active:bg-white
+    focus:ring-1 focus:ring-red-300;
   }
 }

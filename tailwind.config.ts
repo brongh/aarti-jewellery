@@ -10,6 +10,13 @@ const config: Config = {
     extend: {
       fontFamily: {
         'inter': 'var(--font-inter)',
+        'notoSansTc': 'var(--body-font)'
+      },
+      colors: {
+        'primary': '#6B705C'
+      },
+      borderWidth: {
+        '1': '1px'
       }
     },
   },
