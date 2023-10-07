@@ -41,11 +41,12 @@ const CollectionMainPage = ({
   const handleProductClick = (
     e: React.MouseEvent<HTMLDivElement>,
     itemId: string,
-    productType: string
+    productType: string,
+    collectionId: string
   ) => {
     e.preventDefault()
     console.log(itemId, productType)
-    router.push(`/details/${productType}/${itemId}`)
+    router.push(`/details/${productType}/${itemId}?collection=${collectionId}`)
   }
 
   const handleToCollection = (
@@ -76,9 +77,14 @@ const CollectionMainPage = ({
                   return (
                     <div
                       key={product.title + index}
-                      className="w-[300px] cursor-pointer hover:shadow-lg"
+                      className="w-[300px] cursor-pointer hover:shadow-lg shadow-tertiary"
                       onClick={(e) => {
-                        handleProductClick(e, product.itemId, product.type)
+                        handleProductClick(
+                          e,
+                          product.itemId,
+                          product.type,
+                          item.collectionId
+                        )
                       }}
                     >
                       <img src={product.imageUrl} alt={product.alt} />

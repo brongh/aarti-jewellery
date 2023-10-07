@@ -9,10 +9,17 @@ import AboutMeCard from "../Cards/AboutMe"
 
 type HomeContainerProps = {
   collections: HomeCollectionsPayload[]
-  handleOtherCollectionClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  handleOtherCollectionClick: (
+    e: React.MouseEvent<HTMLButtonElement>,
+    slug: string
+  ) => void
   mainFeaturedCollection: HomeCollectionsPayload
-  handleMainClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  handleMainClick: (
+    e: React.MouseEvent<HTMLButtonElement>,
+    slug: string
+  ) => void
   aboutMePayload: AboutMeDTO
+  handleAboutMe: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const HomeContainer = ({
@@ -21,6 +28,7 @@ const HomeContainer = ({
   mainFeaturedCollection,
   handleMainClick,
   aboutMePayload,
+  handleAboutMe,
 }: HomeContainerProps) => {
   return (
     <Col>
@@ -32,7 +40,9 @@ const HomeContainer = ({
           name={mainFeaturedCollection.name}
           description={mainFeaturedCollection.description}
           buttonText="discover"
-          onClick={handleMainClick}
+          onClick={(e) =>
+            handleMainClick(e, mainFeaturedCollection.slug.current)
+          }
           slug={mainFeaturedCollection.slug}
         />
       </Megatron>
@@ -46,6 +56,7 @@ const HomeContainer = ({
           alt={aboutMePayload.alt}
           title={aboutMePayload.name}
           description={aboutMePayload.description}
+          handleAboutMe={handleAboutMe}
         />
       </Col>
     </Col>

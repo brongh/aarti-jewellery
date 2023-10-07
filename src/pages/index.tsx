@@ -2,6 +2,7 @@ import HomeContainer from "@/components/Containers/home"
 import { AboutMeDTO } from "@/dtos/aboutMe"
 import { HomeCollectionsPayload } from "@/dtos/collections"
 import { sanityClient } from "@/services/sanityClient"
+import { useRouter } from "next/router"
 
 type Props = {
   collections: HomeCollectionsPayload[]
@@ -14,15 +15,29 @@ export default function Home({
   mainFeaturedCollection,
   aboutMe,
 }: Props) {
-  const handleMainClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const router = useRouter()
+  const handleMainClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    slug: string
+  ) => {
     e.preventDefault()
+    router.push(`/collections/${slug}`)
+    // console.log(slug)
   }
 
   const handleOtherCollectionClick = (
-    e: React.MouseEvent<HTMLButtonElement>
+    e: React.MouseEvent<HTMLButtonElement>,
+    slug: string
   ) => {
     e.preventDefault()
+    router.push(`/collections/${slug}`)
   }
+
+  const handleAboutMe = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    router.push(`/about`)
+  }
+
   return (
     <main className="">
       <HomeContainer
@@ -31,6 +46,7 @@ export default function Home({
         mainFeaturedCollection={mainFeaturedCollection}
         handleOtherCollectionClick={handleOtherCollectionClick}
         aboutMePayload={aboutMe}
+        handleAboutMe={handleAboutMe}
       />
     </main>
   )

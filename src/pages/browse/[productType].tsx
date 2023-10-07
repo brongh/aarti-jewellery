@@ -2,7 +2,7 @@ import Col from "@/components/Flex/Col"
 import { sanityClient } from "@/services/sanityClient"
 import { ProductPayload } from "@/types/queryPayloads"
 import { GetServerSideProps } from "next"
-import React from "react"
+import React, { useState } from "react"
 
 import Img from "next/image"
 import { urlFor } from "@/services/sanityImage"

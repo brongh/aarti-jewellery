@@ -9,6 +9,7 @@ export type AboutMeCardProps = {
   alt: string
   title: string
   description: string
+  handleAboutMe: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const AboutMeCard = ({
@@ -16,11 +17,12 @@ const AboutMeCard = ({
   alt,
   title,
   description,
+  handleAboutMe,
 }: AboutMeCardProps) => {
   const imageUrl = urlFor(imageData).dpr(2).quality(100).url()
   const blurUrl = urlFor(imageData).width(20).quality(20).url()
   return (
-    <Col className="p-6 w-full max-w-[440px] items-center">
+    <Col className="p-6 w-full max-w-[440px] items-center md:grid md:grid-cols-2 md:max-w-full">
       <Col className="w-full  h-[400px]">
         <Img
           src={imageUrl}
@@ -34,12 +36,17 @@ const AboutMeCard = ({
           }}
         />
       </Col>
-      <Col className="my-12 gap-4">
+      <Col className="my-12 gap-4 md:px-20 md:bg-tertiary md:h-full md:justify-center">
         <Col className="px-3 text-primary gap-1 text-center">
           <h4>{title}</h4>
           <p className="body2">{description}</p>
         </Col>
-        <button className="btn btn-outline">read more</button>
+        <button
+          className="btn btn-outline md:btn-filled"
+          onClick={handleAboutMe}
+        >
+          read more
+        </button>
       </Col>
     </Col>
   )

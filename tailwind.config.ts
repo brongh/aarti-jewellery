@@ -15,6 +15,7 @@ const config: Config = {
       colors: {
         primary: "#6B705C",
         secondary: "#B7B7A4",
+        tertiary: "#FFF1E5",
       },
       borderWidth: {
         "1": "1px",

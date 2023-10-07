@@ -6,7 +6,9 @@ type MainFeatureCardProps = {
   description: string
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
   buttonText: string
-  slug: string
+  slug: {
+    current: string
+  }
 }
 
 const MainFeatureCard = ({
@@ -24,8 +26,8 @@ const MainFeatureCard = ({
           <p className="body2 text-white">{description}</p>
         </Col>
         <button
-          className="btn btn-filled w-full text-base"
-          name={slug}
+          className="btn btn-filled w-full text-base border-0"
+          name={slug.current}
           onClick={onClick}
         >
           {buttonText}

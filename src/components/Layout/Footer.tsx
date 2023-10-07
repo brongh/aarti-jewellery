@@ -3,17 +3,24 @@ import Col from "../Flex/Col"
 import Row from "../Flex/Row"
 import FacebookIcon from "@/icons/FacebookIcon"
 import InstagramIcon from "@/icons/InstagramIcon"
+import Link from "next/link"
 
 const Footer = () => {
   return (
     <footer className="flex flex-col absolute bottom-0 bg-primary w-full pt-10 px-6">
       <Col className="gap-4 uppercase text-white text-base py-4">
-        <a className="caption hover:text-orange-100 active:text-orange-200 cursor-pointer w-20">
+        <Link
+          href="/about"
+          className="caption hover:text-orange-100 active:text-orange-200 cursor-pointer w-20"
+        >
           about me
-        </a>
-        <a className="caption hover:text-orange-100 active:text-orange-200 cursor-pointer w-20">
+        </Link>
+        <Link
+          href="/contact-us"
+          className="caption hover:text-orange-100 active:text-orange-200 cursor-pointer w-20"
+        >
           contact us
-        </a>
+        </Link>
         <Col className="gap-4 mt-4">
           <p className="caption">follow us</p>
           <Row className="items-center gap-4">

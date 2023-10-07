@@ -3,7 +3,7 @@ import { sanityClient } from "@/services/sanityClient"
 import { ProductPayload } from "@/types/queryPayloads"
 import { GetServerSideProps } from "next"
 import { useRouter } from "next/router"
-import React from "react"
+import React, { useState } from "react"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const params = context.params
@@ -90,6 +90,12 @@ const ProductDetailsPage = (props: {
     router.push(`/details/${productName}/${id}`)
   }
 
+  const [showModal, setShowModal] = useState(false)
+
+  const toggleModal = () => {
+    setShowModal((prev) => !prev)
+  }
+
   return (
     <ItemDetails
       handleNavigateToBrowse={handleNavigateToBrowse}
@@ -99,6 +105,8 @@ const ProductDetailsPage = (props: {
       productName={productName}
       otherProducts={otherProducts}
       collectionName={parsedCollectionName}
+      toggleModal={toggleModal}
+      showModal={showModal}
     />
   )
 }

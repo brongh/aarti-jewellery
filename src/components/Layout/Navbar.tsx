@@ -5,6 +5,7 @@ import React, { useState } from "react"
 import Col from "../Flex/Col"
 import { useRouter } from "next/router"
 import CloseIcon from "@/icons/CloseIcon"
+import Row from "../Flex/Row"
 
 const navigationOptions = [
   {
@@ -59,20 +60,32 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-0 w-full h-[65px] p-4 flex-col justify-start items-start gap-2 flex z-40 bg-white">
+      <div className="fixed top-0 w-full h-[65px] md:h-[105px] p-4 flex-col justify-between items-start gap-4 flex z-40 bg-white">
         <div className="relative justify-start items-center inline-flex w-full">
-          <div className="w-6 h-6 absolute" onClick={toggleTab}>
+          <div className="w-6 h-6 absolute md:hidden" onClick={toggleTab}>
             <HamburgerIcon className="hover:stroke-stone-400 cursor-pointer" />
           </div>
           <div className="flex justify-center items-center w-full">
-            <div onClick={handleNavigateToHome}>
+            <div onClick={handleNavigateToHome} className="cursor-pointer">
               <Logo />
             </div>
           </div>
         </div>
+        <Row className="w-full justify-center gap-10 hidden md:flex">
+          {navigationOptions.map((navItem, index) => (
+            <Link
+              href={navItem.href}
+              key={index}
+              onClick={handleNavOptionsClick}
+              className="text-lg text-primary hover:text-red-300 cursor-pointer capitalize"
+            >
+              {navItem.name}
+            </Link>
+          ))}
+        </Row>
       </div>
       {showTab ? (
-        <Col className="bg-opacity-50 h-screen-w-screen bg-black z-50">
+        <Col className="bg-opacity-50 h-screen-w-screen bg-black z-50 md:hidden">
           <Col className="bg-white z-50 h-screen w-[250px] fixed top-0 px-8 py-4">
             <CloseIcon
               className="cursor-pointer h-8 w-8 hover:stroke-primary"
@@ -84,7 +97,7 @@ const Navbar = () => {
                   href={navItem.href}
                   key={index}
                   onClick={handleNavOptionsClick}
-                  className="text-2xl text-stone-400 hover:text-stone-500 cursor-pointer capitalize"
+                  className="text-2xl text-primary hover:text-red-300 cursor-pointer capitalize"
                 >
                   {navItem.name}
                 </Link>
