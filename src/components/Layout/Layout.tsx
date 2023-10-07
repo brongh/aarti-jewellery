@@ -4,7 +4,7 @@ import Footer from "./Footer"
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="min-h-screen h-full min-w-screen w-full relative">
+    <div className="min-h-screen h-full min-w-screen w-full relative bg-white">
       <Navbar />
       <div className="mt-[64px] overflow-hidden">{children}</div>
       <div className="h-[280px]" />

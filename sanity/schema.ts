@@ -5,6 +5,7 @@ import braceletSchema from "./bracelets"
 import necklaceSchema from "./necklaces"
 import collectionSchema from "./collections"
 import aboutMeSchema from "./aboutMe"
+import { coverPhotosSchema } from "./coverPhotos"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -14,5 +15,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     braceletSchema,
     necklaceSchema,
     collectionSchema,
+    coverPhotosSchema,
   ],
 }

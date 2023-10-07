@@ -10,6 +10,7 @@ export type ImageCardProps = {
 } & React.HTMLProps<HTMLDivElement>
 
 const Megatron = ({ imageData, alt, children }: ImageCardProps) => {
+  console.log(imageData)
   const imageUrl = urlFor(imageData).dpr(2).quality(100).url()
   const blurUrl = urlFor(imageData).width(20).quality(20).url()
   return (

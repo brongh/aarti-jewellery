@@ -52,6 +52,7 @@ export async function getStaticProps() {
   }`)
 
   const mainFeature = res?.splice(0, 1)[0]
+  console.log(mainFeature)
 
   const aboutMeResponse: AboutMeDTO[] =
     await sanityClient.fetch(`*[_type == 'aboutMe'] {
