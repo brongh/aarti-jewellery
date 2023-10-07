@@ -26,7 +26,7 @@ const MainFeatureCard = ({
           <p className="body2 text-white">{description}</p>
         </Col>
         <button
-          className="btn btn-filled w-full text-base border-0"
+          className="btn btn-filled w-full text-base border-0 rounded-none"
           name={slug.current}
           onClick={onClick}
         >

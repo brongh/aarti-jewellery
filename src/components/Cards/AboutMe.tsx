@@ -42,7 +42,7 @@ const AboutMeCard = ({
           <p className="body2">{description}</p>
         </Col>
         <button
-          className="btn btn-outline md:btn-filled"
+          className="btn btn-outline md:btn-filled border-0 rounded-none"
           onClick={handleAboutMe}
         >
           read more
